@@ -2,8 +2,8 @@ package com.josephwest2.gigacraft;
 
 import org.slf4j.Logger;
 
-import com.josephwest2.gigacraft.item.Items;
-import com.josephwest2.gigacraft.block.Blocks;
+import com.josephwest2.gigacraft.item.GCItems;
+import com.josephwest2.gigacraft.block.GCBlocks;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.world.item.CreativeModeTabs;
@@ -45,8 +45,10 @@ public class GigaCraft {
         // this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
-        Blocks.register(modEventBus);
-        Items.register(modEventBus);
+        GCCreativeModeTabs.register(modEventBus);
+
+        GCBlocks.register(modEventBus);
+        GCItems.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -63,12 +65,12 @@ public class GigaCraft {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(Items.BISMUTH);
-            event.accept(Items.RAW_BISMUTH);
+            event.accept(GCItems.BISMUTH);
+            event.accept(GCItems.RAW_BISMUTH);
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(Blocks.BISMUTH_BLOCK);
-            event.accept(Blocks.BISMUTH_ORE);
+            event.accept(GCBlocks.BISMUTH_BLOCK);
+            event.accept(GCBlocks.BISMUTH_ORE);
         }
     }
 

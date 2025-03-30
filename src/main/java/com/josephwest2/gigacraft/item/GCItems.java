@@ -7,7 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class Items {
+public class GCItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(GigaCraft.MODID);
 
     public static final DeferredItem<Item> BISMUTH = ITEMS.registerSimpleItem("bismuth");
